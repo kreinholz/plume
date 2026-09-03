@@ -222,6 +222,10 @@ namespace plume {
                     return RenderFormat::D32_FLOAT;
                 case MTL::PixelFormatDepth32Float_Stencil8:
                     return RenderFormat::D32_FLOAT_S8_UINT;
+                case MTL::PixelFormatDepth24Unorm_Stencil8:
+                    return RenderFormat::D24_UNORM_S8_UINT;
+                case MTL::PixelFormatRG11B10Float:
+                    return RenderFormat::R11G11B10_FLOAT;
                 case MTL::PixelFormatR32Float:
                     return RenderFormat::R32_FLOAT;
                 case MTL::PixelFormatR32Uint:
@@ -361,6 +365,10 @@ namespace plume {
                 return MTL::PixelFormatDepth32Float;
             case RenderFormat::D32_FLOAT_S8_UINT:
                 return MTL::PixelFormatDepth32Float_Stencil8;
+            case RenderFormat::D24_UNORM_S8_UINT:
+                return MTL::PixelFormatDepth24Unorm_Stencil8;
+            case RenderFormat::R11G11B10_FLOAT:
+                return MTL::PixelFormatRG11B10Float;
             case RenderFormat::R32_FLOAT:
                 return MTL::PixelFormatR32Float;
             case RenderFormat::R32_UINT:

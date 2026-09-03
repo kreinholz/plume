@@ -144,6 +144,10 @@ namespace plume {
             // In order to be able to create both depth-stencil and shader resource views,
             // we must use R32G8X24_TYPELESS as the base type and specialize later.
             return DXGI_FORMAT_R32G8X24_TYPELESS;
+        case RenderFormat::D24_UNORM_S8_UINT:
+            return DXGI_FORMAT_R24G8_TYPELESS;
+        case RenderFormat::R11G11B10_FLOAT:
+            return DXGI_FORMAT_R11G11B10_FLOAT;
         case RenderFormat::R32_FLOAT:
             return DXGI_FORMAT_R32_FLOAT;
         case RenderFormat::R32_UINT:
@@ -243,6 +247,9 @@ namespace plume {
             // Specialize into depth view of depth-stencil texture.
             return DXGI_FORMAT_R32_FLOAT_X8X24_TYPELESS;
         }
+        if (dxgiFormat == DXGI_FORMAT_R24G8_TYPELESS) {
+            return DXGI_FORMAT_R24_UNORM_X8_TYPELESS;
+        }
         return dxgiFormat;
     }
 
@@ -251,6 +258,9 @@ namespace plume {
         if (dxgiFormat == DXGI_FORMAT_R32G8X24_TYPELESS) {
             // Specialize into full depth-stencil view.
             return DXGI_FORMAT_D32_FLOAT_S8X24_UINT;
+        }
+        if (dxgiFormat == DXGI_FORMAT_R24G8_TYPELESS) {
+            return DXGI_FORMAT_D24_UNORM_S8_UINT;
         }
         return dxgiFormat;
     }

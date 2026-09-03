@@ -171,6 +171,10 @@ namespace plume {
             return VK_FORMAT_D32_SFLOAT;
         case RenderFormat::D32_FLOAT_S8_UINT:
             return VK_FORMAT_D32_SFLOAT_S8_UINT;
+        case RenderFormat::D24_UNORM_S8_UINT:
+            return VK_FORMAT_D24_UNORM_S8_UINT;
+        case RenderFormat::R11G11B10_FLOAT:
+            return VK_FORMAT_B10G11R11_UFLOAT_PACK32;
         case RenderFormat::R32_FLOAT:
             return VK_FORMAT_R32_SFLOAT;
         case RenderFormat::R32_UINT:

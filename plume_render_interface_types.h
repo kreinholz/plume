@@ -160,6 +160,8 @@ namespace plume {
         BC7_TYPELESS,
         BC7_UNORM,
         BC7_UNORM_SRGB,
+        R11G11B10_FLOAT,
+        D24_UNORM_S8_UINT,
         MAX
     };
 
@@ -559,6 +561,8 @@ namespace plume {
         case RenderFormat::R32_FLOAT:
         case RenderFormat::R32_UINT:
         case RenderFormat::R32_SINT:
+        case RenderFormat::R11G11B10_FLOAT:
+        case RenderFormat::D24_UNORM_S8_UINT:
             return 4;
         case RenderFormat::R8G8_TYPELESS:
         case RenderFormat::R8G8_UNORM:
@@ -660,6 +664,8 @@ namespace plume {
         case RenderFormat::R8_UINT:
         case RenderFormat::R8_SNORM:
         case RenderFormat::R8_SINT:
+        case RenderFormat::R11G11B10_FLOAT:
+        case RenderFormat::D24_UNORM_S8_UINT:
             return 1;
         case RenderFormat::BC1_TYPELESS:
         case RenderFormat::BC1_UNORM:
@@ -694,6 +700,7 @@ namespace plume {
         case RenderFormat::D16_UNORM:
         case RenderFormat::D32_FLOAT:
         case RenderFormat::D32_FLOAT_S8_UINT:
+        case RenderFormat::D24_UNORM_S8_UINT:
             return true;
         default:
             return false;
@@ -701,7 +708,7 @@ namespace plume {
     }
 
     constexpr bool RenderFormatIsStencil(RenderFormat format) {
-        return format == RenderFormat::D32_FLOAT_S8_UINT;
+        return format == RenderFormat::D32_FLOAT_S8_UINT || format == RenderFormat::D24_UNORM_S8_UINT;
     }
 
     constexpr RenderTextureViewDimension RenderTextureDimensionToView(const RenderTextureDimension dimension) {
